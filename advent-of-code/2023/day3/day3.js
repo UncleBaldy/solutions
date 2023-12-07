@@ -100,5 +100,5 @@ function solvePart2(input) {
 	return sum;
 }
 
-const Part1 = { solve: solvePart1 };
-const Part2 = { solve: solvePart2 };
+export const Part1 = { solve: solvePart1 };
+export const Part2 = { solve: solvePart2 };
