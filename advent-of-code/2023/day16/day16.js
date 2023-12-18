@@ -61,17 +61,15 @@ function solvePart2(input) {
 	let maxEnergized = 0;
 
 	for (let r = 0; r < R; r++) {
-		let energized = countEnergized(cave, r, 0, 0);
-		if (energized > maxEnergized) maxEnergized = energized;
-		energized = countEnergized(cave, r, C - 1, 2);
-		if (energized > maxEnergized) maxEnergized = energized;
+		let fromTop = countEnergized(cave, r, 0, 0);
+		let fromBottom = countEnergized(cave, r, C - 1, 2);
+		maxEnergized = Math.max(maxEnergized, fromTop, fromBottom);
 	}
 
 	for (let c = 0; c < C; c++) {
-		let energized = countEnergized(cave, 0, c, 1);
-		if (energized > maxEnergized) maxEnergized = energized;
-		energized = countEnergized(cave, R - 1, c, 3);
-		if (energized > maxEnergized) maxEnergized = energized;
+		let fromLeft = countEnergized(cave, 0, c, 1);
+		let fromRight = countEnergized(cave, R - 1, c, 3);
+		maxEnergized = Math.max(maxEnergized, fromLeft, fromRight);
 	}
 
 	return maxEnergized;
